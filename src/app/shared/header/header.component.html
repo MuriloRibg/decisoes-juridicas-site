@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid d-flex w-100">
+    <div class="d-flex justify-content-start align-items-center ms-1 w-25">
+      <div class="p-0 me-2">
+        <button
+          id="btn-offcanvas"
+          class="btn btn-outline-secondary p-0 text-white"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvas"
+          aria-controls="offcanvas"
+        >
+          <i class="bi bi-list fs-4 pe-1 ps-1 m-0"></i>
+        </button>
+      </div>
+
+      <div class="vr text-white me-2"></div>
+
+      <div>
+        <a id="link-home" class="navbar-brand text-white" href="/">TCC Murilo</a>
+      </div>
+    </div>
+    <div class="w-70"></div>
+  </div>
+</nav>
+
+<div
+  class="offcanvas offcanvas-start w-25"
+  data-bs-scroll="true"
+  data-bs-backdrop="false"
+  tabindex="-1"
+  id="offcanvas"
+  aria-labelledby="offcanvasLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvaLabel">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body w-100 m-0 p-0">
+    <div class="list-group list-group-flush mt-3 w-100">
+      <a href="#" class="list-group-item list-group-item-action"> <i class="bi bi-house me-2"></i> Dashboard </a>
+      <a href="#" class="list-group-item list-group-item-action"> <i class="bi bi-search me-2"></i> Procurar </a>
+    </div>
+  </div>
+</div>
