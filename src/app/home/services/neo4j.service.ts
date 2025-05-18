@@ -12,11 +12,11 @@ export class Neo4jService {
     return this.http.get<any>('http://localhost:3000/neo4j/rede-juizes-processos');
   }
 
-  getGraph(): Observable<any> {
-    return this.http.get<any>('http://localhost:3000/neo4j/graph');
-  }
-
   getEstadosAdvogados(): Observable<any> {
     return this.http.get<any>('http://localhost:3000/neo4j/estados-advogados');
+  }
+
+  getQuantidadeProcessosPorJuiz(): Observable<any> {
+    return this.http.get<any>('http://localhost:3000/neo4j/quantidade-processos-por-juiz');
   }
 }

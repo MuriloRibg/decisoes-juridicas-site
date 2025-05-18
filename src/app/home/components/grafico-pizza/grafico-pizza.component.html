@@ -1,0 +1,18 @@
+<div class="card shadow-sm">
+  <div class="card-header">
+    <h5 class="card-subtitle text-muted">Participação Relativa dos Juízes nos Processos</h5>
+  </div>
+  <div class="card-body d-flex p-0 m-0">
+    <div class="d-flex align-items-center justify-content-center">
+      <google-chart
+        [type]="pieChartType"
+        [data]="dados"
+        [columns]="pieChartColumns"
+        [options]="pieChartOptions"
+        [width]="600"
+        [height]="400"
+      >
+      </google-chart>
+    </div>
+  </div>
+</div>

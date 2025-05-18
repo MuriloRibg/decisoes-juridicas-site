@@ -1,0 +1,16 @@
+<div class="card shadow-sm">
+  <div class="card-header">
+    <h5 class="card-subtitle text-muted">Advogados por Estado da OAB</h5>
+  </div>
+  <div class="card-body p-0 m-0">
+    <google-chart
+      [type]="geoChartType"
+      [data]="dados"
+      [columns]="geoChartColumns"
+      [options]="geoChartOptions"
+      [width]="800"
+      [height]="400"
+    >
+    </google-chart>
+  </div>
+</div>
