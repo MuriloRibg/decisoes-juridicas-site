@@ -51,10 +51,22 @@ export class HomeComponent implements OnInit {
       const response = await firstValueFrom(this.neo4jService.getQuantidadeProcessosPorJuiz());
 
       if (response !== null && response !== undefined) {
-        this.dadosPizza = response.map((item: { judgeName: any; totalProcesses: any }) => [
-          item.judgeName,
-          item.totalProcesses
-        ]);
+        this.dadosPizza = response.map((item: { judgeName: any; totalProcesses: any }) => {
+          // Capitaliza cada palavra e limita a 3 palavras
+          let words = (item.judgeName || "")
+            .split(" ")
+            .filter((w: string) => w.trim().length > 0)
+            .slice(0, 3)
+            .map((w: string) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+
+          // Remove o último nome se ele tiver duas letras
+          if (words.length > 1 && words[words.length - 1].length === 2) {
+            words.pop();
+          }
+
+          const name = words.join(" ");
+          return [name, item.totalProcesses];
+        });
       }
     } catch (error) {
       console.error("Erro ao buscar dados do gráfico de pizza:", error);
@@ -102,7 +114,22 @@ export class HomeComponent implements OnInit {
           contagem[juiz] = (contagem[juiz] || 0) + 1;
         });
         // Converter para formato do Google Charts
-        this.dadosBarra = Object.entries(contagem).map(([juiz, total]) => [juiz, total]);
+        this.dadosBarra = Object.entries(contagem).map(([juiz, total]) => {
+           // Capitaliza cada palavra e limita a 3 palavras
+          let words = (juiz|| "")
+            .split(" ")
+            .filter((w: string) => w.trim().length > 0)
+            .slice(0, 3)
+            .map((w: string) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+
+          // Remove o último nome se ele tiver duas letras
+          if (words.length > 1 && words[words.length - 1].length === 2) {
+            words.pop();
+          }
+
+          const name = words.join(" ");
+          return [name, total];
+        });
       }
     } catch (error) {
       console.error("Erro ao buscar dados do gráfico de barra:", error);
